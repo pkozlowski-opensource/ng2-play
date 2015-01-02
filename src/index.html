@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="lib/traceur-runtime.js"></script>
+
+    <script src="lib/es6-module-loader-sans-promises.src.js"></script>
+    <script src="lib/system.src.js"></script>
+    <script src="lib/extension-register.js"></script>
+    <script>
+        register(System);
+    </script>
+
+    <script>
+        System.import('./hello').then(function(m) {
+
+            var Greeter = m.Greeter;
+            new Greeter().say('World');
+
+        }, console.log.bind(console))
+    </script>
+</head>
+<body>
+
+</body>
+</html>
