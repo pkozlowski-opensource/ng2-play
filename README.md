@@ -23,3 +23,4 @@ The goal of this repo is to prepare a minimal ("walking skeleton") project build
 
 * [Practical Workflows for ES6 Modules, Fluent 2014](https://www.youtube.com/watch?v=0VUjM-jJf2U)
 * [Guy Bedford: Package Management for ES6 Modules, JSConf2014](https://www.youtube.com/watch?v=szJjsduHBQQ)
+* [Loader API specification](http://whatwg.github.io/loader/) 
