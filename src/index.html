@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+
+    <!-- ES6-related imports -->
     <script src="lib/traceur-runtime.js"></script>
     <script src="lib/es6-module-loader-sans-promises.src.js"></script>
     <script src="lib/extension-register.js"></script>
@@ -9,16 +11,18 @@
         register(System);
     </script>
 
+    <!-- Angular2-related imports -->
+    <script src="lib/angular-all.js"></script>
+    <script src="lib/zone.js"></script>
+
+    <!-- The application itself -->
     <script>
-        System.import('greeter').then(function(m) {
-
-            var Greeter = m.Greeter;
-            new Greeter().say('World');
-
+        System.import('app').then(function(m) {
+            m.main();
         }, console.log.bind(console))
     </script>
 </head>
 <body>
-
+<hello-app></hello-app>
 </body>
 </html>

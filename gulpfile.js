@@ -1,5 +1,7 @@
 var gulp = require('gulp');
 
+//TODO: this _needs_ to be extracted to a dedicated gulp plugin, see: https://github.com/sindresorhus/gulp-traceur/issues/54
+//more generally - we should better understand what is missing from the the gulp-traceur so it can be used for Angular2 projects
 function transpile(options) {
 
     var traceur = require('traceur');
@@ -21,7 +23,7 @@ function transpile(options) {
 
         try {
             options.moduleName = path.basename(originalFilePath, '.js');
-            var transpiledContent = traceur.compile(file.contents.toString(), options);
+            var transpiledContent = traceur.compile(file.contents.toString(), options, originalFilePath);
             this.push(cloneFile(file, {contents: transpiledContent}));
             done();
 
@@ -44,14 +46,17 @@ var PATHS = {
     lib: [
         'node_modules/traceur/bin/traceur-runtime.js',
         'node_modules/es6-module-loader/dist/es6-module-loader-sans-promises.src.js',
-        'node_modules/systemjs/lib/extension-register.js'
+        'node_modules/systemjs/lib/extension-register.js',
+        'lib/*.js'
     ]
 };
 
 gulp.task('js', function () {
     return gulp.src('src/**/*.js')
         .pipe(transpile({
-            modules: 'instantiate'
+            modules: 'instantiate',
+            annotations: true,
+            types: true
         }))
         .pipe(gulp.dest('dist'));
 });
