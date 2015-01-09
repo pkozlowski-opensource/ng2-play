@@ -8,7 +8,7 @@
     <script src="lib/es6-module-loader-sans-promises.src.js"></script>
     <script src="lib/extension-register.js"></script>
     <script>
-        register(System);
+        register(System); <!-- TODO: how to get rid of this line? -->
     </script>
 
     <!-- Angular2-related imports -->
@@ -17,6 +17,7 @@
 
     <!-- The application itself -->
     <script>
+        //TODO: we need some defaults for this in the FRW
         System.import('app').then(function(m) {
             m.main();
         }, console.log.bind(console))

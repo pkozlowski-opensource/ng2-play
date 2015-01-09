@@ -1,9 +1,0 @@
-- AT script
-    - try out annotations
-    - try out runtime type checks
-        - where can I get them - is it only from Angular repo?
-        - what is the real added value of keeping those runtime checks?
-
-- Angular2
-    - package Angular2 runtime deliverables into one file
-    - bootstrap a "static" application
