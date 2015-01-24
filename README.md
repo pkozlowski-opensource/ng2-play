@@ -3,6 +3,13 @@ ng2-play
 
 The goal of this repo is to prepare a minimal ("walking skeleton") project build with Angular2.0 and ES6
 
+## Install
+
+Clone this repo and:
+
+* `npm i -g gulp` to install gulp globally (if you don't have it installed already)
+* `npm i` to install local npm dependencies
+
 ## Dependencies
 
 * ES6 -> ES5 transpilation
