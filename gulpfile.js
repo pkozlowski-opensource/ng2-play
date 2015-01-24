@@ -1,4 +1,5 @@
 var gulp = require('gulp');
+var del = require('del');
 
 //TODO: this _needs_ to be extracted to a dedicated gulp plugin, see: https://github.com/sindresorhus/gulp-traceur/issues/54
 //more generally - we should better understand what is missing from the the gulp-traceur so it can be used for Angular2 projects
@@ -50,6 +51,10 @@ var PATHS = {
         'lib/*.*'
     ]
 };
+
+gulp.task('clean', function(done) {
+  del(['dist'], done);
+});
 
 gulp.task('js', function () {
     return gulp.src('src/**/*.js')
