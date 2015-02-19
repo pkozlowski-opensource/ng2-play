@@ -76,4 +76,22 @@ gulp.task('libs', function () {
         .pipe(gulp.dest('dist/lib'));
 });
 
+gulp.task('play', ['default'], function () {
+
+    var http = require('http');
+    var connect = require('connect');
+    var serveStatic = require('serve-static');
+    var open = require('open');
+
+    var port = 9000, app;
+
+    gulp.watch(PATHS.src.html, ['html']);
+    gulp.watch(PATHS.src.js, ['js']);
+
+    app = connect().use(serveStatic(__dirname + '/dist'));  // serve everything that is static
+    http.createServer(app).listen(port, function () {
+        open('http://localhost:' + port, 'chrome');
+    });
+});
+
 gulp.task('default', ['js', 'html', 'libs']);
