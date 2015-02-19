@@ -1,10 +1,10 @@
-import {bootstrap, Component, TemplateConfig} from 'core/core';
+import {bootstrap, Component, Template} from 'angular2/core';
 
 @Component({
-    selector: 'hello-app',  //TODO: default to camel-cased class name if not provided?
-    template: new TemplateConfig({ //TODO: if a string is provided, default to template string (or its URL?)
-        inline: `<span>Hello, {{name}}!</span>`
-    })
+    selector: 'hello-app'  //TODO: default to camel-cased class name if not provided?
+})
+@Template({
+    inline: `<span>Hello, {{name}}!</span>`
 })
 class HelloApp {
     constructor() {

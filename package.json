@@ -18,9 +18,12 @@
     "gulp": "~3.8.10",
     "open": "0.0.5",
     "through2": "~0.6.3",
-    "serve-static": "~1.8.1"
+    "serve-static": "~1.8.1",
+    "gulp-rename": "~1.2.0",
+    "gulp-concat": "~2.5.0"
   },
   "dependencies": {
+    "angular2": "~2.0.0-alpha.8.prod",
     "es6-module-loader": "~0.11.0",
     "systemjs": "~0.11.0",
     "traceur": "0.0.79"

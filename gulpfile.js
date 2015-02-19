@@ -1,5 +1,6 @@
 var gulp = require('gulp');
 var del = require('del');
+var concat = require('gulp-concat');
 
 //TODO: this _needs_ to be extracted to a dedicated gulp plugin, see: https://github.com/sindresorhus/gulp-traceur/issues/54
 //more generally - we should better understand what is missing from the the gulp-traceur so it can be used for Angular2 projects
@@ -23,7 +24,7 @@ function transpile(options) {
         var originalFilePath = file.history[0];
 
         try {
-            options.moduleName = path.basename(originalFilePath, '.js');
+            options.moduleName = path.relative(file.base, file.path).split(path.sep).join('/').replace('.js', '');
             var transpiledContent = traceur.compile(file.contents.toString(), options, originalFilePath);
             this.push(cloneFile(file, {contents: transpiledContent}));
             done();
@@ -48,7 +49,7 @@ var PATHS = {
         'node_modules/traceur/bin/traceur-runtime.js',
         'node_modules/es6-module-loader/dist/es6-module-loader-sans-promises.src.js',
         'node_modules/systemjs/lib/extension-register.js',
-        'lib/*.*'
+        'node_modules/angular2/node_modules/zone.js/zone.js'
     ]
 };
 
@@ -71,8 +72,24 @@ gulp.task('html', function () {
         .pipe(gulp.dest('dist'));
 });
 
-gulp.task('libs', function () {
+gulp.task('libs', ['angular2'], function () {
     return gulp.src(PATHS.lib)
+        .pipe(gulp.dest('dist/lib'));
+});
+
+gulp.task('angular2', function () {
+
+    var rename = require('gulp-rename');
+
+    //transpile & concat
+    return gulp.src(['node_modules/angular2/*.es6', 'node_modules/angular2/src/**/*.es6'], { base: 'node_modules' })
+        .pipe(rename({extname: ".js"}))
+        .pipe(transpile({
+            modules: 'instantiate',
+            annotations: true,
+            types: true
+        }))
+        .pipe(concat('angular2.js'))
         .pipe(gulp.dest('dist/lib'));
 });
 
