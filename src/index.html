@@ -8,22 +8,29 @@
     <script src="lib/es6-module-loader-sans-promises.src.js"></script>
     <script src="lib/extension-register.js"></script>
     <script>
-        register(System); <!-- TODO: how to get rid of this line? -->
+        register(System);
+        <!-- TODO: how to get rid of this line? -->
     </script>
 
     <!-- Angular2-related imports -->
     <script src="lib/angular2.js"></script>
     <script src="lib/zone.js"></script>
 
-    <!-- The application itself -->
+    <!-- Application bootstrap logic -->
     <script>
+
         //TODO: we need some defaults for this in the FRW
-        System.import('app').then(function(m) {
-            m.main();
-        }, console.log.bind(console))
+        //TODO: maybe we could use sth like <div ng-app="app::AppCmpt"></div> or similar?
+
+        Promise.all([System.import('angular2/core'), System.import('hello')]).then(function (modules) {
+            modules[0].bootstrap(modules[1].Hello);
+        }, console.log.bind(console));
+
     </script>
 </head>
 <body>
-<hello-app></hello-app>
+    <hello>
+        Loading...
+    </hello>
 </body>
 </html>
