@@ -1,4 +1,4 @@
-import {Component, Template} from 'angular2/core';
+import {Component, Template} from 'angular2/angular2';
 
 @Component({
     selector: 'hello'  //TODO: default to camel-cased class name if not provided?
