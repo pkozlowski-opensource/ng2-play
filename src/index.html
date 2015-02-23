@@ -16,21 +16,21 @@
     <script src="lib/angular2.js"></script>
     <script src="lib/zone.js"></script>
 
-    <!-- Application bootstrap logic -->
-    <script>
-
-        //TODO: we need some defaults for this in the FRW
-        //TODO: maybe we could use sth like <div ng-app="app::AppCmpt"></div> or similar?
-
-        Promise.all([System.import('angular2/core'), System.import('hello')]).then(function (modules) {
-            modules[0].bootstrap(modules[1].Hello);
-        }, console.log.bind(console));
-
-    </script>
 </head>
 <body>
     <hello>
         Loading...
     </hello>
 </body>
+
+<!-- Application bootstrap logic -->
+<script>
+    //TODO: we need some defaults for this in the FRW
+    //TODO: maybe we could use sth like <div ng-app="app::AppCmpt"></div> or similar?
+
+    Promise.all([System.import('angular2/core'), System.import('hello')]).then(function (modules) {
+        modules[0].bootstrap(modules[1].Hello);
+    }, console.log.bind(console));
+</script>
+
 </html>
