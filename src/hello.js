@@ -5,7 +5,7 @@ import {If} from 'angular2/angular2';
     selector: 'hello'  //TODO: default to camel-cased class name if not provided?
 })
 @Template({
-    inline: `<span !if="name">Hello, {{name}}!</span>`,
+    inline: `<span *if="name">Hello, {{name}}!</span>`,
     directives: [If]
 })
 export class Hello {
