@@ -24,7 +24,8 @@
     "gulp-traceur": "~0.17.0"
   },
   "dependencies": {
-    "angular2": "~2.0.0-alpha.8.prod",
+    "angular2": "2.0.0-alpha.11",
+    "zone.js": "0.4.1",
     "es6-module-loader": "~0.11.0",
     "systemjs": "~0.11.0"
   }

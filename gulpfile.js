@@ -13,7 +13,7 @@ var PATHS = {
         'node_modules/gulp-traceur/node_modules/traceur/bin/traceur-runtime.js',
         'node_modules/es6-module-loader/dist/es6-module-loader-sans-promises.src.js',
         'node_modules/systemjs/lib/extension-register.js',
-        'node_modules/angular2/node_modules/zone.js/zone.js'
+        'node_modules/zone.js/zone.js'
     ]
 };
 
@@ -47,8 +47,14 @@ gulp.task('libs', ['angular2'], function () {
 gulp.task('angular2', function () {
 
     //transpile & concat
-    return gulp.src(['node_modules/angular2/*.es6', 'node_modules/angular2/src/**/*.es6'], { base: 'node_modules' })
-        .pipe(rename({extname: ''})) //hack, see: https://github.com/sindresorhus/gulp-traceur/issues/54
+    return gulp.src([
+            'node_modules/angular2/es6/prod/*.es6',
+            'node_modules/angular2/es6/prod/src/**/*.es6'],
+            { base: 'node_modules/angular2/es6/prod' })
+        .pipe(rename(function(path){
+            path.dirname = 'angular2/' + path.dirname; //this is not ideal... but not sure how to change angular's file structure
+            path.extname = ''; //hack, see: https://github.com/sindresorhus/gulp-traceur/issues/54
+        })) 
         .pipe(traceur({ modules: 'instantiate', moduleName: true}))
         .pipe(concat('angular2.js'))
         .pipe(gulp.dest('dist/lib'));
