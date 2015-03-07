@@ -21,10 +21,10 @@
     "serve-static": "~1.8.1",
     "gulp-rename": "~1.2.0",
     "gulp-concat": "~2.5.0",
-    "gulp-traceur": "~0.17.0"
+    "gulp-traceur": "0.16.*"
   },
   "dependencies": {
-    "angular2": "2.0.0-alpha.11",
+    "angular2": "2.0.0-alpha.12",
     "zone.js": "0.4.1",
     "es6-module-loader": "~0.11.0",
     "systemjs": "~0.11.0"
