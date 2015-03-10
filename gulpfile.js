@@ -1,19 +1,20 @@
 var gulp = require('gulp');
 var del = require('del');
 var concat = require('gulp-concat');
+var plumber = require('gulp-plumber');
 var rename = require('gulp-rename');
 var traceur = require('gulp-traceur');
 
 var PATHS = {
     src: {
-        js: 'src/*.js',
-        html: 'src/*.html'
+      js: 'src/**/*.js',
+      html: 'src/**/*.html'
     },
     lib: [
-        'node_modules/gulp-traceur/node_modules/traceur/bin/traceur-runtime.js',
-        'node_modules/es6-module-loader/dist/es6-module-loader-sans-promises.src.js',
-        'node_modules/systemjs/lib/extension-register.js',
-        'node_modules/angular2/node_modules/zone.js/zone.js'
+      'node_modules/gulp-traceur/node_modules/traceur/bin/traceur-runtime.js',
+      'node_modules/es6-module-loader/dist/es6-module-loader-sans-promises.src.js',
+      'node_modules/systemjs/lib/extension-register.js',
+      'node_modules/angular2/node_modules/zone.js/zone.js'
     ]
 };
 
@@ -22,8 +23,9 @@ gulp.task('clean', function(done) {
 });
 
 gulp.task('js', function () {
-    return gulp.src('src/**/*.js')
+    return gulp.src(PATHS.src.js)
         .pipe(rename({extname: ''})) //hack, see: https://github.com/sindresorhus/gulp-traceur/issues/54
+        .pipe(plumber())
         .pipe(traceur({
             modules: 'instantiate',
             moduleName: true,
