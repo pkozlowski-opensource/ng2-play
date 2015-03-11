@@ -76,7 +76,7 @@ gulp.task('play', ['default'], function () {
 
     app = connect().use(serveStatic(__dirname + '/dist'));  // serve everything that is static
     http.createServer(app).listen(port, function () {
-        open('http://localhost:' + port, 'chrome');
+      open('http://localhost:' + port);
     });
 });
 
