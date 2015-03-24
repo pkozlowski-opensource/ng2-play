@@ -8,6 +8,7 @@ var sourcemaps = require('gulp-sourcemaps');
 
 var PATHS = {
     src: {
+      root: 'src',
       js: 'src/**/*.js',
       html: 'src/**/*.html'
     },
@@ -36,7 +37,7 @@ gulp.task('js', function () {
             types: true
         }))
         .pipe(rename({extname: '.js'})) //hack, see: https://github.com/sindresorhus/gulp-traceur/issues/54
-        .pipe(sourcemaps.write('.'))
+        .pipe(sourcemaps.write('.', {sourceRoot: PATHS.src.root}))
         .pipe(gulp.dest('dist'));
 });
 
