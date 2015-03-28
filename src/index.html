@@ -7,15 +7,21 @@
     <script src="lib/traceur-runtime.js"></script>
     <script src="lib/es6-module-loader-sans-promises.src.js"></script>
     <script src="lib/extension-register.js"></script>
+    <script src="lib/extension-cjs.js"></script>
     <script>
+        System.paths = {
+            'rx/dist/rx.all': 'lib/rx.all.js',
+            'angular2/*': 'lib/angular2.js',
+            '*': '*.js'
+        };
         register(System);
-        <!-- TODO: how to get rid of this line? -->
+        cjs(System);
     </script>
 
     <!-- Angular2-related imports -->
-    <script src="lib/angular2.js"></script>
     <script src="lib/zone.js"></script>
-
+    <script src="lib/long-stack-trace-zone.js"></script>
+    <script src="lib/angular2.js"></script>
 </head>
 <body>
     <hello>
