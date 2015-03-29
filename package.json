@@ -19,7 +19,7 @@
     "gulp-concat": "~2.5.0",
     "gulp-plumber": "^1.0.0",
     "gulp-rename": "~1.2.0",
-    "gulp-traceur": "0.16.*",
+    "gulp-traceur": "0.17.*",
     "open": "0.0.5",
     "serve-static": "~1.8.1",
     "through2": "~0.6.3"
