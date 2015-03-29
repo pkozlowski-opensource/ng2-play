@@ -33,7 +33,8 @@ gulp.task('js', function () {
             modules: 'instantiate',
             moduleName: true,
             annotations: true,
-            types: true
+            types: true,
+            memberVariables: true
         }))
         .pipe(rename({extname: '.js'})) //hack, see: https://github.com/sindresorhus/gulp-traceur/issues/54
         .pipe(gulp.dest('dist'));
