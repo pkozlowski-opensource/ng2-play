@@ -9,6 +9,7 @@ import {If} from 'angular2/angular2';
     directives: [If]
 })
 export class Hello {
+    name: string;
     constructor() {
         this.name = 'World'; //TODO: how to declare a field with its default value (so I don't need a constructor)?
         setTimeout(() => {
