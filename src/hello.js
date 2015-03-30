@@ -9,7 +9,7 @@ import {If} from 'angular2/angular2';
     directives: [If]
 })
 export class Hello {
-    name: 'World';
+    name: string = 'World';
     constructor() {
         setTimeout(() => {
           this.name = 'NEW World'
