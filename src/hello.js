@@ -1,6 +1,4 @@
-import {Component, Template} from 'angular2/angular2';
-import {If} from 'angular2/angular2';
-import {bootstrap} from 'angular2/angular2';
+import {Component, Template, bootstrap, If} from 'angular2/angular2';
 
 @Component({
     selector: 'hello'  //TODO: default to camel-cased class name if not provided?
