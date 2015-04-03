@@ -2,7 +2,8 @@
   "name": "ng2-play",
   "version": "0.0.0",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "gulp play"
   },
   "repository": {
     "type": "git",
