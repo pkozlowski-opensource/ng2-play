@@ -27,7 +27,6 @@
   },
   "dependencies": {
     "angular2": "2.0.0-alpha.18",
-    "zone.js": "0.4.2",
     "es6-module-loader": "~0.11.0",
     "systemjs": "~0.11.0"
   }
