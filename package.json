@@ -23,6 +23,7 @@
     "gulp-traceur": "0.17.*",
     "open": "0.0.5",
     "serve-static": "~1.8.1",
+    "systemjs-builder": "^0.10.3",
     "through2": "~0.6.3"
   },
   "dependencies": {
