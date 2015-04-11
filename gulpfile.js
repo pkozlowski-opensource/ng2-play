@@ -1,6 +1,5 @@
 var gulp = require('gulp');
 var del = require('del');
-var concat = require('gulp-concat');
 var plumber = require('gulp-plumber');
 var rename = require('gulp-rename');
 var traceur = require('gulp-traceur');
@@ -44,8 +43,10 @@ gulp.task('html', function () {
 });
 
 gulp.task('libs', ['angular2'], function () {
+    var size = require('gulp-size');
     return gulp.src(PATHS.lib)
-        .pipe(gulp.dest('dist/lib'));
+      .pipe(size({showFiles: true, gzip: true}))
+      .pipe(gulp.dest('dist/lib'));
 });
 
 gulp.task('angular2', function () {
