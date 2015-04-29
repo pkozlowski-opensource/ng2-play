@@ -27,7 +27,7 @@
     "through2": "~0.6.3"
   },
   "dependencies": {
-    "angular2": "2.0.0-alpha.20",
+    "angular2": "2.0.0-alpha.21",
     "es6-module-loader": "0.16.5",
     "systemjs": "0.16.7"
   }
