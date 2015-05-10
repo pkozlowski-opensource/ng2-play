@@ -54,7 +54,7 @@ gulp.task('angular2', function () {
   var buildConfig = {
     paths: {
       "angular2/*": "node_modules/angular2/es6/prod/*.es6",
-      "rx/*": "node_modules/angular2/node_modules/rx/*.js"
+      "rx": "node_modules/angular2/node_modules/rx/dist/rx.js"
     }
   };
 
