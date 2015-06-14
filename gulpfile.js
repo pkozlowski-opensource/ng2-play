@@ -58,9 +58,12 @@ gulp.task('angular2', function () {
       "rx": "node_modules/angular2/node_modules/rx/dist/rx.js"
     },
     meta: {
-      // auto-detection fails to detect properly here - https://github.com/systemjs/builder/issues/123
+      // auto-detection fails to detect properly
       'rx': {
-        format: 'cjs'
+        format: 'cjs' //https://github.com/systemjs/builder/issues/123
+      },
+      'angular2/src/core/compiler/interfaces': {
+        format: 'cjs' //https://github.com/angular/angular/commit/83e99fc72d5f6aa80f044bcf54f8679b2370dab7
       }
     }
   };
