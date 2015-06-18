@@ -54,7 +54,7 @@ gulp.task('angular2', function () {
 
   var buildConfig = {
     paths: {
-      "angular2/*": "node_modules/angular2/es6/prod/*.es6",
+      "angular2/*": "node_modules/angular2/es6/prod/*.js",
       "rx": "node_modules/angular2/node_modules/rx/dist/rx.js"
     },
     meta: {
@@ -62,16 +62,16 @@ gulp.task('angular2', function () {
       'rx': {
         format: 'cjs' //https://github.com/systemjs/builder/issues/123
       },
-      'angular2/src/core/compiler/interfaces': {
-        format: 'cjs' //https://github.com/angular/angular/commit/83e99fc72d5f6aa80f044bcf54f8679b2370dab7
-      }
+        'angular2/es5build': {
+            build: false
+        }
     }
   };
 
   var Builder = require('systemjs-builder');
   var builder = new Builder(buildConfig);
 
-  return builder.build('angular2/angular2', 'dist/lib/angular2.js', {});
+  return builder.build('angular2/*', 'dist/lib/angular2.js', {});
 });
 
 gulp.task('play', ['default'], function () {
