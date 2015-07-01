@@ -11,8 +11,7 @@ var PATHS = {
     },
     lib: [
       'node_modules/gulp-traceur/node_modules/traceur/bin/traceur-runtime.js',
-      'node_modules/es6-module-loader/dist/es6-module-loader-sans-promises.src.js',
-      'node_modules/systemjs/lib/extension-register.js',
+      'node_modules/systemjs/dist/system-csp-production.src.js',
       'node_modules/reflect-metadata/Reflect.js',
       'node_modules/angular2/node_modules/zone.js/dist/zone.js',
       'node_modules/angular2/node_modules/zone.js/dist/long-stack-trace-zone.js'
@@ -53,6 +52,7 @@ gulp.task('libs', ['angular2'], function () {
 gulp.task('angular2', function () {
 
   var buildConfig = {
+    defaultJSExtensions: true,
     paths: {
       "angular2/*": "node_modules/angular2/es6/prod/*.js",
       "rx": "node_modules/angular2/node_modules/rx/dist/rx.js"

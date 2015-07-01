@@ -5,10 +5,9 @@
 
     <!-- ES6-related imports -->
     <script src="lib/traceur-runtime.js"></script>
-    <script src="lib/es6-module-loader-sans-promises.src.js"></script>
-    <script src="lib/extension-register.js"></script>
+    <script src="lib/system-csp-production.src.js"></script>
     <script>
-        register(System);
+        System.config({defaultJSExtensions: true});
     </script>
     <script src="lib/Reflect.js"></script>
 
