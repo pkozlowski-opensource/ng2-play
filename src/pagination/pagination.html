@@ -1,0 +1,13 @@
+<ul class="pagination pagination-lg">
+    <li [class.disabled]="!hasPrevious()">
+        <a (click)="selectPage(_pageNo-1)">&laquo;</a>
+    </li>
+
+    <li *ng-for="#pageNumber of _pages" [class.active]="pageNumber === _pageNo">
+      <a (click)="selectPage(pageNumber)">{{pageNumber}}</a>
+    </li>
+
+    <li [class.disabled]="!hasNext()">
+      <a (click)="selectPage(_pageNo+1)">&raquo;</a>
+    </li>
+</ul>

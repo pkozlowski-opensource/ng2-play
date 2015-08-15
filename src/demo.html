@@ -1,0 +1,5 @@
+<bs-alert [dismissible]="true" type="success" (dismiss)="alertClosed()">some content</bs-alert>
+<hr/>
+<label>Collection size: <input type="number" [(ng-model)]="pagination.collection"></label><br>
+<label>Items per page: <input type="number" [(ng-model)]="pagination.items"></label><br>
+<bs-pagination [collection-size]="pagination.collection" [page-size]="pagination.items"></bs-pagination><br>
