@@ -1,11 +1,11 @@
-import {ComponentAnnotation as Component, ViewAnnotation as View, bootstrap, NgIf} from 'angular2/angular2';
+import {ComponentMetadata as Component, ViewMetadata as View, bootstrap, CORE_DIRECTIVES} from 'angular2/angular2';
 
 @Component({
     selector: 'hello'
 })
 @View({
     template: `<span *ng-if="name">Hello, {{name}}!</span>`,
-    directives: [NgIf]
+    directives: [CORE_DIRECTIVES]
 })
 export class Hello {
     name: string = 'World';
