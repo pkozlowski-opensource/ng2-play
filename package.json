@@ -22,9 +22,7 @@
     "gulp-size": "^1.2.1",
     "gulp-traceur": "0.17.*",
     "open": "0.0.5",
-    "serve-static": "~1.8.1",
-    "systemjs-builder": "0.12.2",
-    "through2": "~0.6.3"
+    "serve-static": "~1.8.1"
   },
   "dependencies": {
     "angular2": "2.0.0-alpha.35",

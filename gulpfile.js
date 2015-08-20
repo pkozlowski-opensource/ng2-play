@@ -13,8 +13,7 @@ var PATHS = {
       'node_modules/gulp-traceur/node_modules/traceur/bin/traceur-runtime.js',
       'node_modules/systemjs/dist/system-csp-production.src.js',
       'node_modules/reflect-metadata/Reflect.js',
-      'node_modules/angular2/node_modules/zone.js/dist/zone.js',
-      'node_modules/angular2/node_modules/zone.js/dist/long-stack-trace-zone.js'
+      'node_modules/angular2/bundles/angular2.js'
     ]
 };
 
@@ -42,33 +41,11 @@ gulp.task('html', function () {
         .pipe(gulp.dest('dist'));
 });
 
-gulp.task('libs', ['angular2'], function () {
+gulp.task('libs', function () {
     var size = require('gulp-size');
     return gulp.src(PATHS.lib)
       .pipe(size({showFiles: true, gzip: true}))
       .pipe(gulp.dest('dist/lib'));
-});
-
-gulp.task('angular2', function () {
-
-  var buildConfig = {
-    defaultJSExtensions: true,
-    paths: {
-      "angular2/*": "node_modules/angular2/es6/prod/*.js",
-      "rx": "node_modules/angular2/node_modules/rx/dist/rx.js"
-    },
-    meta: {
-      // auto-detection fails to detect properly
-      'rx': {
-        format: 'cjs' //https://github.com/systemjs/builder/issues/123
-      }
-    }
-  };
-
-  var Builder = require('systemjs-builder');
-  var builder = new Builder(buildConfig);
-
-  return builder.build('angular2/angular2', 'dist/lib/angular2.js', {});
 });
 
 gulp.task('play', ['default'], function () {
