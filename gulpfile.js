@@ -1,8 +1,7 @@
 var gulp = require('gulp');
 
 var PATHS = {
-    src: 'src/**/*.ts',
-    typings: 'node_modules/angular2/bundles/typings/angular2/angular2.d.ts'
+    src: 'src/**/*.ts'
 };
 
 gulp.task('clean', function (done) {
@@ -12,11 +11,12 @@ gulp.task('clean', function (done) {
 
 gulp.task('ts2js', function () {
     var typescript = require('gulp-typescript');
-    var tsResult = gulp.src([PATHS.src, PATHS.typings])
+    var tsResult = gulp.src(PATHS.src)
         .pipe(typescript({
             noImplicitAny: true,
             module: 'system',
             target: 'ES5',
+            moduleResolution: 'node',
             emitDecoratorMetadata: true,
             experimentalDecorators: true
         }));
