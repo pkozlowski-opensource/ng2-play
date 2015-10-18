@@ -21,6 +21,7 @@
   "dependencies": {
     "angular2": "2.0.0-alpha.44",
     "es6-shim": "^0.33.6",
-    "systemjs": "0.18.4"
+    "ng2-bootstrap": "0.44.2",
+    "systemjs": "0.19.4"
   }
 }
