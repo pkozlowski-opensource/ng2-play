@@ -17,5 +17,5 @@ After completing installation type in your favourite shell:
 
 To see the app, go to the following url:
 
-   http://localhost:8080
+    http://localhost:8080
 
