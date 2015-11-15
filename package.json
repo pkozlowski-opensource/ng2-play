@@ -10,7 +10,7 @@
     "url": "https://github.com/pkozlowski-opensource/ng2-play.ts/issues"
   },
   "scripts": {
-    "start": "tsc -w & http-server -c-1 -ohttp://localhost:8080"
+    "start": "tsc -w & http-server -c-1 ." 
   },
   "homepage": "https://github.com/pkozlowski-opensource/ng2-play.ts#readme",
   "devDependencies": {
