@@ -9,14 +9,12 @@
   "bugs": {
     "url": "https://github.com/pkozlowski-opensource/ng2-play.ts/issues"
   },
+  "scripts": {
+    "start": "tsc -w & http-server -c-1 ." 
+  },
   "homepage": "https://github.com/pkozlowski-opensource/ng2-play.ts#readme",
   "devDependencies": {
-    "connect": "^3.4.0",
-    "del": "^1.2.0",
-    "gulp": "^3.9.0",
-    "gulp-typescript": "^2.8.0",
-    "open": "0.0.5",
-    "serve-static": "^1.10.0"
+    "http-server": "^0.8.5"
   },
   "dependencies": {
     "angular2": "2.0.0-alpha.46",
