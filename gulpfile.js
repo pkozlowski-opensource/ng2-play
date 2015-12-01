@@ -31,6 +31,17 @@ gulp.task('play', ['ts2js'], function () {
     gulp.watch(PATHS.src, ['ts2js']);
 
     app = connect().use(serveStatic(__dirname));
+    app.use(function (req, res) {
+        // redirect 404s to index.html
+        fs.readFile(__dirname + '/index.html', function (err, data) {
+            if (err) {
+                res.writeHead(500);
+                return res.end('Error loading index.html');
+            }
+            res.writeHead(200);
+            res.end(data);
+        });
+    }); 
     http.createServer(app).listen(port, function () {
         open('http://localhost:' + port);
     });
