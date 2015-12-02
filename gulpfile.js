@@ -11,13 +11,15 @@ gulp.task('clean', function (done) {
 
 gulp.task('ts2js', function () {
     var typescript = require('gulp-typescript');
+    var sourcemaps = require('gulp-sourcemaps');
     var tscConfig = require('./tsconfig.json');
 
     var tsResult = gulp
         .src(PATHS.src)
+        .pipe(sourcemaps.init())
         .pipe(typescript(tscConfig.compilerOptions));
 
-    return tsResult.js.pipe(gulp.dest('dist'));
+    return tsResult.js.pipe(sourcemaps.write('../maps')).pipe(gulp.dest('dist'));
 });
 
 gulp.task('play', ['ts2js'], function () {
