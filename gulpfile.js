@@ -19,7 +19,7 @@ gulp.task('ts2js', function () {
         .pipe(sourcemaps.init())
         .pipe(typescript(tscConfig.compilerOptions));
 
-    return tsResult.js.pipe(sourcemaps.write('../maps')).pipe(gulp.dest('dist'));
+    return tsResult.js.pipe(sourcemaps.write()).pipe(gulp.dest('dist'));
 });
 
 gulp.task('play', ['ts2js'], function () {
