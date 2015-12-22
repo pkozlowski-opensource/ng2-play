@@ -15,64 +15,40 @@
   </div>
   
   <div class="row" *ngIf="post">
-    <div class="span6">
+    <div class="col-md-9">
       <img class="shot_image" src="{{post.images.hidpi}}">
-  
-      <!--<div class="page-header">
-        <h2>Responses</h2>
-      </div>
-      <div ng-repeat = "comment in comments.comments" class="media comment">
-        <div class="pull-left">
-          <img class="media-object" src="{{comment.player.avatar_url}}">
-        </div>
-        <div class="media-body">
-          <strong>
-            <a href="#/players/{{comment.player.username}}">
-              {{comment.player.name}}
-            </a>
-          </strong>
-          <p ng-bind-html-unsafe="comment.body"></p>
-        </div>
-  
-      </div>
-      <button 
-        class="btn btn-primary" 
-        ng-show="comments.page < comments.pages"
-        ng-click="comments.loadNextPage()">
-        Load More Comments
-      </button>-->
     </div>
   
-    <div class="span3" *ngIf="post">
-        <ul class="nav nav-list">
-          <li>
-            <i class="icon-heart"></i>
-            {{post.likes_count}} Likes
+    <div class="col-md-3" *ngIf="post">
+        <ul class="list-group">
+          <li class="list-group-item">
+            <i class="fa fa-thumbs-o-up"></i>
+            <span class="label label-default label-pill pull-xs-right">{{post.likes_count}}</span>
+            Likes
           </li>
-          <li>
-            <i class="icon-eye-open"></i>
-            {{post.views_count}} Views
+          <li class="list-group-item">
+            <i class="fa fa-eye"></i>
+            <span class="label label-default label-pill pull-xs-right">{{post.views_count}}</span>
+            Views
           </li>
-          <li>
-            <i class="icon-share-alt"></i>
-            {{post.rebounds_count}} Rebounds
+          <li class="list-group-item">
+            <i class="fa fa-share"></i>
+            <span class="label label-default label-pill pull-xs-right">{{post.rebounds_count}}</span>
+            Rebounds
           </li>
-          <li>
-            <i class="icon-comment"></i>
-            {{post.comments_count}} Comments
+          <li class="list-group-item">
+            <i class="fa fa-comment"></i>
+            <span class="label label-default label-pill pull-xs-right">{{post.comments_count}}</span>
+            Comments
           </li>
-          <li>
-            <a href="{{post.short_url}}">
-              <i class="icon-globe"></i>
-              {{post.short_url}}
+          <li class="list-group-item">
+            <a href="{{post.html_url}}">
+              <i class="fa fa-globe"></i>
+              Link to Dribbble
+              
             </a>
           </li>
         </ul>
-  
-    </div>
-    <div class="span3">
-      <h2>Rebounds</h2>
-      <div shot-list="rebounds"></div>
     </div>
   </div>
 </div>

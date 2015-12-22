@@ -1,6 +1,6 @@
-# ng2-play.ts
+# ng2-dribbble.ts
 
-A minimal [Angular2](https://angular.io/) playground using [TypeScript](http://www.typescriptlang.org/) and [SystemJS loader](https://github.com/systemjs/systemjs)
+A minimal [Angular2](https://angular.io/) playground (Dribbble Clone) using [TypeScript](http://www.typescriptlang.org/) and [SystemJS loader](https://github.com/systemjs/systemjs)
 
 ## Install
 

@@ -8,8 +8,8 @@ import {HomeComponent} from './components/home/home';
 import {PostComponent} from './components/post/post';
 
 @RouteConfig([
-    {path: '/', component: HomeComponent, as: 'Home', useAsDefault: true},
-    {path: '/:id', component: PostComponent, as: 'Post'}
+    {path: '/snaps', component: HomeComponent, as: 'Home', useAsDefault: true},
+    {path: '/snaps/:id', component: PostComponent, as: 'Post'}
 ])
 @Component({
     selector: 'app',
@@ -20,4 +20,5 @@ export class APP {
     
 }
 
-bootstrap(APP, [JSONP_PROVIDERS, provide(LocationStrategy, { useClass: HashLocationStrategy }), provide(APP_BASE_HREF, {useValue: '/'}), ROUTER_PROVIDERS]);
+bootstrap(APP, [JSONP_PROVIDERS, ROUTER_PROVIDERS, provide(LocationStrategy, { useClass: HashLocationStrategy })
+,provide(APP_BASE_HREF, {useValue: '/'})]);

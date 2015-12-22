@@ -9,8 +9,8 @@ export class Dribbble {
 	constructor(jsonp:Jsonp) {
 		this.jsonp = jsonp;
 	}
-	getPosts(){
-		return this.jsonp.get(this.api + '/shots?access_token='+this.token+'&callback=JSONP_CALLBACK');
+	getPosts(page){
+		return this.jsonp.get(this.api + '/shots?page='+ page +'&access_token='+this.token+'&callback=JSONP_CALLBACK');
 	}
 	getPost(id){
 		return this.jsonp.get(this.api + '/shots/'+id+'?access_token='+this.token+'&callback=JSONP_CALLBACK');
