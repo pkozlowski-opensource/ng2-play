@@ -11,13 +11,15 @@ gulp.task('clean', function (done) {
 
 gulp.task('ts2js', function () {
     var typescript = require('gulp-typescript');
+    var sourcemaps = require('gulp-sourcemaps');
     var tscConfig = require('./tsconfig.json');
 
     var tsResult = gulp
         .src(PATHS.src)
+        .pipe(sourcemaps.init())
         .pipe(typescript(tscConfig.compilerOptions));
 
-    return tsResult.js.pipe(gulp.dest('dist'));
+    return tsResult.js.pipe(sourcemaps.write()).pipe(gulp.dest('dist'));
 });
 
 gulp.task('play', ['ts2js'], function () {
@@ -31,6 +33,17 @@ gulp.task('play', ['ts2js'], function () {
     gulp.watch(PATHS.src, ['ts2js']);
 
     app = connect().use(serveStatic(__dirname));
+    app.use(function (req, res) {
+        // redirect 404s to index.html
+        fs.readFile(__dirname + '/index.html', function (err, data) {
+            if (err) {
+                res.writeHead(500);
+                return res.end('Error loading index.html');
+            }
+            res.writeHead(200);
+            res.end(data);
+        });
+    }); 
     http.createServer(app).listen(port, function () {
         open('http://localhost:' + port);
     });
