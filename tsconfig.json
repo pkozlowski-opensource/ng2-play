@@ -1,5 +1,4 @@
 {
-  "version": "1.6.2",
   "compilerOptions": {
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
@@ -10,6 +9,8 @@
     "sourceMap": false
   },
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "typings/main",
+    "typings/main.d.ts"
   ]
 }
