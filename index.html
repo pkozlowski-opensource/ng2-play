@@ -15,7 +15,16 @@
 <script src="/node_modules/systemjs/dist/system.js"></script>
 <script>
     //configure system loader
-    System.config({defaultJSExtensions: true});
+    System.config({
+        defaultJSExtensions: true,
+        packages: {
+            "/angular2": {"defaultExtension": false}
+        },
+        map: {
+            'fuel-ui': 'node_modules/fuel-ui',
+            'rxjs': 'node_modules/rxjs'
+        }
+    });
 </script>
 <script src="/node_modules/rxjs/bundles/Rx.js"></script>
 <script src="/node_modules/angular2/bundles/angular2.js"></script>
