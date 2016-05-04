@@ -1,6 +1,6 @@
-import {Component} from 'angular2/core';
-import {bootstrap} from 'angular2/platform/browser';
-import {DateRangePicker} from 'fuel-ui/fuel-ui';
+import {Component} from '@angular/core';
+import {bootstrap} from '@angular/platform-browser-dynamic';
+import {DateRangePicker, Collapse} from 'fuel-ui/fuel-ui';
 
 @Component({
     selector: 'hello-app',
@@ -12,11 +12,30 @@ import {DateRangePicker} from 'fuel-ui/fuel-ui';
                 <date-range-picker></date-range-picker>
             </div>
         </div>
+
+        <button class="btn btn-primary" (click)="collapsed = !collapsed">Toggle Collapse</button>
+        <style>
+            #collapse-demo-box {
+                border: 1px solid black; 
+                padding: 0 25px;
+            }
+        </style>
+        <div id="collapse-demo-box" [collapse]="collapsed" [duration]="duration">
+            <h2>All of your content</h2>
+            <ul>
+                <li>That you wish</li>
+                <li>to be able</li>
+                <li>to collapse</li>
+            </ul>
+            <p>At any time!</p>
+        </div>
     `,
-    directives: [DateRangePicker]
+    directives: [DateRangePicker, Collapse]
 })
 export class HelloApp {
     name: string = 'World';
+    collapsed: boolean = false;
+    duration: number = 500;
 }
 
 bootstrap(HelloApp);

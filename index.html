@@ -15,19 +15,52 @@
 </body>
 
 <!-- ES6-related imports -->
-<script src="node_modules/angular2/bundles/angular2-polyfills.js"></script>
-<script src="node_modules/es6-shim/es6-shim.min.js"></script>
+<script src="node_modules/zone.js/dist/zone.js"></script>
+<script src="node_modules/reflect-metadata/Reflect.js"></script>
 <script src="node_modules/systemjs/dist/system.js"></script>
 <script>
     //configure system loader
     System.config({
         packages: {
-            "dist": {"defaultExtension": 'js', format: 'register'}
+            '@angular/common': {
+                main: 'index'
+            },
+            '@angular/compiler': {
+                main: 'index'
+            },
+            '@angular/core': {
+                main: 'index'
+            },
+            '@angular/http': {
+                main: 'index'
+            },
+            '@angular/platform-browser-dynamic': {
+                main: 'index'
+            },
+            '@angular/platform-browser': {
+                main: 'index'
+            },
+            '@angular/router': {
+                main: 'index'
+            },
+            "rxjs": {
+                defaultExtension: 'js'
+            },
+            'dist': {
+                defaultExtension: 'js', 
+                format: 'register'
+            },
+        },
+        paths: {
+            '@angular/*': 'node_modules/@angular/*',
+            "rxjs/*": "node_modules/rxjs/*",
+            "reflect-metadata": "node_modules/reflect-metadata"
+        },
+        map: {
+            "rxjs": "node_modules/rxjs"
         }
     });
 </script>
-<script src="node_modules/rxjs/bundles/Rx.js"></script>
-<script src="node_modules/angular2/bundles/angular2.js"></script>
 <script src="node_modules/fuel-ui/bundles/fuel-ui.min.js"></script>
 <script>
     //bootstrap the Angular2 application
