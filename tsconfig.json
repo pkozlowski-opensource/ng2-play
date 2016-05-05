@@ -7,15 +7,9 @@
     "module": "system",
     "moduleResolution": "node",
     "removeComments": true,
-    "noImplicitAny": false,
-    "sourceMap": false,
-		"outDir": "dist"
+    "sourceMap": false
   },
   "exclude": [
     "node_modules"
-  ],
-  "filesGlob": [
-      "./**/*.ts",
-      "./typings/browser.d.ts"
   ]
 }
