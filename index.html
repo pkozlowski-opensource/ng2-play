@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Angular2 playground</title>
 </head>
 
@@ -10,15 +12,52 @@
 </body>
 
 <!-- ES6-related imports -->
-<script src="/node_modules/angular2/bundles/angular2-polyfills.js"></script>
-<script src="/node_modules/es6-shim/es6-shim.min.js"></script>
-<script src="/node_modules/systemjs/dist/system.js"></script>
+<script src="node_modules/zone.js/dist/zone.js"></script>
+<script src="node_modules/reflect-metadata/Reflect.js"></script>
+<script src="node_modules/systemjs/dist/system.js"></script>
 <script>
     //configure system loader
-    System.config({defaultJSExtensions: true});
+    System.config({
+        packages: {
+            '@angular/common': {
+                main: 'index'
+            },
+            '@angular/compiler': {
+                main: 'index'
+            },
+            '@angular/core': {
+                main: 'index'
+            },
+            '@angular/http': {
+                main: 'index'
+            },
+            '@angular/platform-browser-dynamic': {
+                main: 'index'
+            },
+            '@angular/platform-browser': {
+                main: 'index'
+            },
+            '@angular/router': {
+                main: 'index'
+            },
+            "rxjs": {
+                defaultExtension: 'js'
+            },
+            'dist': {
+                defaultExtension: 'js', 
+                format: 'register'
+            },
+        },
+        paths: {
+            '@angular/*': 'node_modules/@angular/*',
+            "rxjs/*": "node_modules/rxjs/*",
+            "reflect-metadata": "node_modules/reflect-metadata"
+        },
+        map: {
+            "rxjs": "node_modules/rxjs"
+        }
+    });
 </script>
-<script src="/node_modules/rxjs/bundles/Rx.js"></script>
-<script src="/node_modules/angular2/bundles/angular2.js"></script>
 <script>
     //bootstrap the Angular2 application
     System.import('dist/hello').catch(console.log.bind(console));

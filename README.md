@@ -6,7 +6,7 @@ A minimal [Angular2](https://angular.io/) playground using [TypeScript](http://w
 
 Clone this repo and execute in your favourite shell:
 
-* `npm i -g gulp` to install gulp globally (if you don't have it installed already)
+* `npm i -g gulp typings` to install gulp and typings globally (if you don't have it installed already)
 * `npm i` to install local npm dependencies
 
 ## Play
