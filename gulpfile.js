@@ -14,7 +14,7 @@ gulp.task('ts2js', function () {
     var tscConfig = require('./tsconfig.json');
 
     var tsResult = gulp
-        .src([PATHS.src, 'typings/browser.d.ts'])
+        .src([PATHS.src, 'typings/index.d.ts'])
         .pipe(typescript(tscConfig.compilerOptions));
 
     return tsResult.js.pipe(gulp.dest('dist'));
