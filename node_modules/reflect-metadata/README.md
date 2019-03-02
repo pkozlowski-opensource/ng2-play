@@ -1,12 +1,16 @@
-Proposal to add Decorators to ES7, along with a prototype for an ES7 Reflection API for Decorator Metadata
-
 # Metadata Reflection API
 
 * [Detailed proposal][Metadata-Spec]
 
+## Installation
+
+```
+npm install reflect-metadata
+```
+
 ## Background
 
-* [Decorators][] add the ability to augment a class and its members as the class is defined, through a declarative syntax.
+* Decorators add the ability to augment a class and its members as the class is defined, through a declarative syntax.
 * Traceur attaches annotations to a static property on the class.
 * Languages like C# (.NET), and Java support attributes or annotations that add metadata to types, along with a reflective API for reading metadata.
 
@@ -25,7 +29,7 @@ Proposal to add Decorators to ES7, along with a prototype for an ES7 Reflection 
 ```JavaScript
 class C {
   @Reflect.metadata(metadataKey, metadataValue)
-  method() {  
+  method() {
   }
 }
 ```
@@ -44,12 +48,12 @@ let metadataValue = Reflect.getMetadata(metadataKey, obj, "method");
 ## Semantics
 
 * Object has a new \[\[Metadata\]\] internal property that will contain a Map whose keys are property keys (or **undefined**) and whose values are Maps of metadata keys to metadata values.
-* Object will have a number of new internal methods for \[\[DefineOwnMetadata\]\], \[\[GetOwnMetadata\]\], \[\[HasOwnMetadata\]\], etc. 
+* Object will have a number of new internal methods for \[\[DefineOwnMetadata\]\], \[\[GetOwnMetadata\]\], \[\[HasOwnMetadata\]\], etc.
   * These internal methods can be overridden by a Proxy to support additional traps.
   * These internal methods will by default call a set of abstract operations to define and read metadata.
 * The Reflect object will expose the MOP operations to allow imperative access to metadata.
 * Metadata defined on class declaration *C* is stored in *C*.\[\[Metadata\]\], with **undefined** as the key.
-* Metadata defined on static members of class declaration *C* are stored in *C*.\[\[Metadata\]\], with the property key as the key. 
+* Metadata defined on static members of class declaration *C* are stored in *C*.\[\[Metadata\]\], with the property key as the key.
 * Metadata defined on instance members of class declaration *C* are stored in *C*.prototype.\[\[Metadata\]\], with the property key as the key.
 
 ## API
@@ -92,7 +96,7 @@ let result = Reflect.deleteMetadata(metadataKey, target, propertyKey);
 class C {
   // apply metadata via a decorator to a method (property)
   @Reflect.metadata(metadataKey, metadataValue)
-  method() {  
+  method() {
   }
 }
 ```
@@ -161,11 +165,14 @@ function ParamTypes(...types) {
 }
 ```
 
+* To enable experimental support for metadata decorators in your TypeScript project, you must add `"experimentalDecorators": true` to your tsconfig.json file.
+* To enable experimental support for auto-generated type metadata in your TypeScript project, you must add `"emitDecoratorMetadata": true` to your tsconfig.json file.
+  * Please note that auto-generated type metadata may have issues with circular or forward references for types.
+
 ## Issues
 
 * A poorly written mutating decorator for a class constructor could cause metadata to become lost if the prototype chain is not maintained. Though, not maintaining the prototype chain in a mutating decorator for a class constructor would have other negative side effects as well. @rbuckton
   * This is mitigated if the mutating decorator returns a class expression that extends from the target, or returns a proxy for the decorator. @rbuckton
 * Metadata for a method is attached to the class (or prototype) via the property key. It would not then be available if trying to read metadata on the function of the method (e.g. "tearing-off" the method from the class). @rbuckton
 
-[Metadata-Spec]: https://github.com/jonathandturner/decorators/blob/master/specs/metadata.md
-[Decorators]: https://github.com/jonathandturner/decorators/blob/master/README.md
+[Metadata-Spec]: https://rbuckton.github.io/reflect-metadata

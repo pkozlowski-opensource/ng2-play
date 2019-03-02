@@ -1,20 +1,27 @@
-# ng2-dribbble.ts
+# NgxBehance
 
-A minimal [Angular2](https://angular.io/) playground (Dribbble Clone) using [TypeScript](http://www.typescriptlang.org/) and [SystemJS loader](https://github.com/systemjs/systemjs)
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.2.
 
-## Install
+## Development server
 
-Clone this repo and execute in your favourite shell:
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-* `npm i -g gulp` to install gulp globally (if you don't have it installed already)
-* `npm i` to install local npm dependencies
+## Code scaffolding
 
-## Play
+Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-After completing installation type in your favourite shell:
+## Build
 
-* `gulp play` to start a "Hello World" app in a new browser window. App files are observed and will be re-transpiled on each change.
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
+## Running unit tests
 
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/mohammedzamakhan/ng2-dribbble/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
+## Running end-to-end tests
+
+Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+
+## Further help
+
+To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).

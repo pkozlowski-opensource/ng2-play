@@ -1,0 +1,56 @@
+<ng-container *ngIf="post$ | async as post">
+  <div class="container">
+    <div class="media shot_header">
+      <div class="pull-left">
+        <img class="media-object" src="{{post.owners[0].images[115]}}" >
+      </div>
+      <div class="media-body">
+        <h1>{{post.name}}</h1>
+        <span class="muted">by</span>
+          {{post.owners[0].display_name}}
+        |
+        {{post.published_on | date}}
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-9">
+        <img class="shot_image" src="{{post.covers[808]}}">
+      </div>
+      
+      <div class="col-md-3">
+          <ul class="list-group">
+              <li class="list-group-item">
+                  <span *ngFor="let color of post.colors">
+                      <span class="label label-default label-pill pull-xs-right">{{color | colorNamer}}</span>
+                    </span>
+                  Colors
+                </li>
+            <li class="list-group-item">
+              <i class="fa fa-thumbs-o-up"></i>
+              <span class="label label-default label-pill pull-xs-right">{{post.stats.appreciations}}</span>
+              Appreciations
+            </li>
+            <li class="list-group-item">
+              <i class="fa fa-eye"></i>
+              <span class="label label-default label-pill pull-xs-right">{{post.stats.views}}</span>
+              Views
+            </li>
+            <li class="list-group-item">
+              <i class="fa fa-comment"></i>
+              <span class="label label-default label-pill pull-xs-right">{{post.stats.comments}}</span>
+              Comments
+            </li>
+            <li class="list-group-item">
+              <a href="{{post.url}}" target="_blank">
+                <i class="fa fa-globe"></i>
+                Link to Behance
+              </a>
+            </li>
+          </ul>
+      </div>
+    </div>
+  </div>
+</ng-container>
+
+

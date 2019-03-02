@@ -1,0 +1,12 @@
+<div class="album text-muted">
+	<div class="container">
+		<div class="row">
+			<div class="card" *ngFor="let post of posts$ | async">
+				<a [routerLink]="['/snaps', post.id]">
+				<img src="{{post.covers[115]}}" alt="Card image cap" class="img-responsive">
+				<p class="card-text">{{post.name}}</p>
+				</a>
+			</div>
+		</div>
+	</div>
+</div>
