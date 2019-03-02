@@ -17,9 +17,12 @@
       <div class="col-md-9">
         <img class="shot_image" src="{{post.covers[808]}}">
       </div>
-      
+
       <div class="col-md-3">
           <ul class="list-group">
+              <li class="list-group-item">
+                  <button class="btn btn-primary" (click)="toggleFavorite()">{{isFavorite ? 'Remove Favorite' : 'Add To Favorite'}}</button>
+                </li>
               <li class="list-group-item">
                   <span *ngFor="let color of post.colors">
                       <span class="label label-default label-pill pull-xs-right">{{color | colorNamer}}</span>

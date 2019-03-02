@@ -10,6 +10,7 @@ import { map } from 'rxjs/operators';
 })
 export class PostComponent implements OnInit {
   post$;
+  isFavorite: boolean;
   constructor(private behance: BehanceService, private route: ActivatedRoute) {
     this.post$ = this.behance.getPost(this.route.snapshot.params.id).pipe(
       map((data: any) => data.project)
@@ -17,6 +18,17 @@ export class PostComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.isFavorite = (JSON.parse(localStorage.getItem('favorites')) || {})[this.route.snapshot.params.id];
+  }
+
+  toggleFavorite() {
+    this.isFavorite = !this.isFavorite;
+    localStorage.setItem('favorites',
+      JSON.stringify({
+        ...JSON.parse(localStorage.getItem('favorites')),
+        [this.route.snapshot.params.id]: this.isFavorite
+      })
+    );
   }
 
 }
